@@ -22,3 +22,11 @@ export const paths = {
     },
   },
 }
+
+export const apiPaths = {
+  apiPrefix: '/api/v1',
+  nsPrefix: '/api/v1/namespaces',
+
+  // Network
+  networkOrgs: '/network/organizations',
+}

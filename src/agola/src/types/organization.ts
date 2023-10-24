@@ -2,8 +2,6 @@ export type IOrganizationTableFilterValue = string | string[]
 
 export type IOrganizationTableFilters = {
   name: string
-  role: string[]
-  status: string
 }
 export type IOrganizationItem = {
   id: string

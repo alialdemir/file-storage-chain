@@ -1,10 +1,8 @@
-import formatDistance from 'date-fns/formatDistance'
-import subDays from 'date-fns/subDays'
-
 import Chip from '@mui/material/Chip'
 import TableCell from '@mui/material/TableCell'
 import { IOrganizationItem } from 'src/types/organization'
 import TableRow from '@mui/material/TableRow'
+import { fToNow } from 'src/utils/format-time'
 
 type Props = {
   row: IOrganizationItem
@@ -12,9 +10,7 @@ type Props = {
 
 export default function OrganizationTableRow({ row }: Props) {
   const { name, id, did, messages, created } = row
-  const createdDateDistance = formatDistance(subDays(new Date(), 0), new Date(created), {
-    addSuffix: true,
-  })
+  const createdDateDistance = fToNow(created)
 
   return (
     <TableRow hover>

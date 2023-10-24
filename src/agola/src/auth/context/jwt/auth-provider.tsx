@@ -7,6 +7,7 @@ import axios, { endpoints } from 'src/utils/axios'
 import { AuthContext } from './auth-context'
 import { setSession, isValidToken } from './utils'
 import { AuthUserType, ActionMapType, AuthStateType } from '../../types'
+import { useMockedUser } from 'src/hooks/use-mocked-user'
 
 // NOTE:
 // We only build demo at basic level.
@@ -126,7 +127,9 @@ export function AuthProvider({ children }: Props) {
       password,
     }
 
-    const res = await axios.post(endpoints.auth.login, data)
+    const mockUser = useMockedUser()
+
+    const res = { data: { accessToken: '', user: mockUser.user } } //await axios.post(endpoints.auth.login, data)
 
     const { accessToken, user } = res.data
 
