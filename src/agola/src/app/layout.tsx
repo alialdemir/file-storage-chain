@@ -9,6 +9,7 @@ import { MotionLazy } from 'src/components/animate/motion-lazy'
 import { SettingsDrawer, SettingsProvider } from 'src/components/settings'
 
 import { AuthProvider } from 'src/auth/context/jwt'
+import { FilterProvider } from 'src/filter/contexts/filter-provider'
 
 export const metadata = {
   title: 'Minimal UI Kit',
@@ -45,13 +46,15 @@ export default function RootLayout({ children }: Props) {
               themeStretch: true,
             }}
           >
-            <ThemeProvider>
-              <MotionLazy>
-                <SettingsDrawer />
-                <ProgressBar />
-                {children}
-              </MotionLazy>
-            </ThemeProvider>
+            <FilterProvider>
+              <ThemeProvider>
+                <MotionLazy>
+                  <SettingsDrawer />
+                  <ProgressBar />
+                  {children}
+                </MotionLazy>
+              </ThemeProvider>
+            </FilterProvider>
           </SettingsProvider>
         </AuthProvider>
       </body>
