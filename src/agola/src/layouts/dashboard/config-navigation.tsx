@@ -25,7 +25,7 @@ export function useNavData() {
         items: [{ title: 'Dashboard', path: paths.namespaces.root, icon: ICONS.dashboard }],
       },
 
-      // MANAGEMENT
+      // Network<
 
       {
         items: [

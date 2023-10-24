@@ -1,9 +1,9 @@
-import FiveView from 'src/sections/five/view'
+import OrganizationsView from 'src/sections/organizations/view/view'
 
 export const metadata = {
-  title: 'Dashboard: Five',
+  title: 'File Storage Chain: Organizations',
 }
 
 export default function Page() {
-  return <FiveView />
+  return <OrganizationsView />
 }

@@ -5,8 +5,6 @@ import Box, { BoxProps } from '@mui/material/Box'
 
 import BackgroundShape from './background-shape'
 
-// ----------------------------------------------------------------------
-
 function PageNotFoundIllustration({ ...other }: BoxProps) {
   const theme = useTheme()
 
