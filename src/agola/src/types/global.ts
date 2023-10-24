@@ -1,6 +1,6 @@
 export type IRequestParams = {
-  limit: number
+  limit: number | string
   // count: string
-  skip: number
+  skip: number | string
   // sort: string
 }

@@ -46,15 +46,16 @@ export default function OrganizationsView() {
   const table = useTable()
 
   const settings = useSettingsContext()
+
+  const [tableData, setTableData] = useState<IOrganizationItem[]>([])
+
   const { organizations, organizationsLoading, organizationsEmpty } = useGetOrganizations({
     limit: table.rowsPerPage,
     skip: table.rowsPerPage * table.page,
   })
 
-  const [tableData, setTableData] = useState<IOrganizationItem[]>([])
-
   useEffect(() => {
-    if (organizations.length) {
+    if (organizations?.length) {
       setTableData(organizations)
     }
   }, [organizations])
@@ -96,17 +97,6 @@ export default function OrganizationsView() {
             { name: 'Network' },
             { name: 'Organizations' },
           ]}
-          // action={
-          //   <Button
-          //     component={RouterLink}
-          //     href={'paths.dashboard.network.organization.new'}
-          //     variant="contained"
-          //     color="success"
-          //     startIcon={<Iconify icon="mingcute:add-line" />}
-          //   >
-          //     New Organization
-          //   </Button>
-          // }
           sx={{
             mb: { xs: 3, md: 5 },
           }}
@@ -124,7 +114,6 @@ export default function OrganizationsView() {
               sx={{ p: 2.5, pt: 0 }}
             />
           )}
-
           <TableContainer sx={{ position: 'relative', overflow: 'unset' }}>
             <Scrollbar>
               <Table size={table.dense ? 'small' : 'medium'} sx={{ minWidth: 960 }}>
