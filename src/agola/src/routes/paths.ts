@@ -1,7 +1,10 @@
 const ROOTS = {
+  ROOT: '/app',
   AUTH: '/auth',
   NAMESPACES: '/namespaces',
 }
+
+const rootUrlCombine = (url: string) => `${ROOTS.ROOT}/${url}`
 
 export const paths = {
   // AUTH
@@ -10,15 +13,21 @@ export const paths = {
       login: `${ROOTS.AUTH}/jwt/login`,
       register: `${ROOTS.AUTH}/jwt/register`,
     },
+    // ROOT
   },
+
+  ROOT: {
+    root: ROOTS.ROOT,
+    fileManager: `${ROOTS.ROOT}/file-manager`,
+  },
+
   // NAMESPACES
   namespaces: {
-    root: ROOTS.NAMESPACES,
     network: {
-      organizations: `${ROOTS.NAMESPACES}/network/organizations`,
-      nodes: `${ROOTS.NAMESPACES}/network/nodes`,
-      identities: `${ROOTS.NAMESPACES}/network/identities`,
-      namespaces: `${ROOTS.NAMESPACES}/network/namespaces`,
+      organizations: `${rootUrlCombine(ROOTS.NAMESPACES)}/network/organizations`,
+      nodes: `${rootUrlCombine(ROOTS.NAMESPACES)}/network/nodes`,
+      identities: `${rootUrlCombine(ROOTS.NAMESPACES)}/network/identities`,
+      namespaces: `${rootUrlCombine(ROOTS.NAMESPACES)}/network/namespaces`,
     },
   },
 }

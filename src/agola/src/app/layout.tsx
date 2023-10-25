@@ -1,5 +1,6 @@
 /* eslint-disable perfectionist/sort-imports */
 import 'src/global.css'
+import { LocalizationProvider } from 'src/locales'
 
 import ThemeProvider from 'src/theme'
 import { primaryFont } from 'src/theme/typography'
@@ -35,24 +36,26 @@ export default function RootLayout({ children }: Props) {
     <html lang="en" className={primaryFont.className}>
       <body>
         <AuthProvider>
-          <SettingsProvider
-            defaultSettings={{
-              themeMode: 'dark', // 'light' | 'dark'
-              themeDirection: 'ltr', //  'rtl' | 'ltr'
-              themeContrast: 'default', // 'default' | 'bold'
-              themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
-              themeColorPresets: 'orange', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
-              themeStretch: true,
-            }}
-          >
-            <ThemeProvider>
-              <MotionLazy>
-                <SettingsDrawer />
-                <ProgressBar />
-                {children}
-              </MotionLazy>
-            </ThemeProvider>
-          </SettingsProvider>
+          <LocalizationProvider>
+            <SettingsProvider
+              defaultSettings={{
+                themeMode: 'dark', // 'light' | 'dark'
+                themeDirection: 'ltr', //  'rtl' | 'ltr'
+                themeContrast: 'default', // 'default' | 'bold'
+                themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
+                themeColorPresets: 'orange', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
+                themeStretch: true,
+              }}
+            >
+              <ThemeProvider>
+                <MotionLazy>
+                  <SettingsDrawer />
+                  <ProgressBar />
+                  {children}
+                </MotionLazy>
+              </ThemeProvider>
+            </SettingsProvider>
+          </LocalizationProvider>
         </AuthProvider>
       </body>
     </html>

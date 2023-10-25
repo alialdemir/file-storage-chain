@@ -1,13 +1,18 @@
 import { useEffect } from 'react'
+
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Drawer from '@mui/material/Drawer'
+
 import { usePathname } from 'src/routes/hooks'
+
 import { useResponsive } from 'src/hooks/use-responsive'
 import { useMockedUser } from 'src/hooks/use-mocked-user'
+
 import Logo from 'src/components/logo'
 import Scrollbar from 'src/components/scrollbar'
 import { NavSectionVertical } from 'src/components/nav-section'
+
 import { NAV } from '../config-layout'
 import { useNavData } from './config-navigation'
 import NavToggleButton from '../common/nav-toggle-button'

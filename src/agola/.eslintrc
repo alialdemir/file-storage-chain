@@ -23,7 +23,7 @@
     }
   },
   "rules": {
-    "semi": "error",
+    "semi": 0,
     "no-alert": 0,
     "camelcase": 0,
     "no-console": 0,

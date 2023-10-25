@@ -1,32 +1,28 @@
 import { useMemo } from 'react'
+
 import { paths } from 'src/routes/paths'
-import SvgColor from 'src/components/svg-color'
-import { LanguageIcon, DashboardIcon } from 'src/assets/icons'
-const icon = (name: string) => (
-  <SvgColor src={`/assets/icons/navbar/${name}.svg`} sx={{ width: 1, height: 1 }} />
-  // OR
-  // <Iconify icon="fluent:mail-24-filled" />
-  // https://icon-sets.iconify.design/solar/
-  // https://www.streamlinehq.com/icons
-)
+
+import { FolderIcon, LanguageIcon, DashboardIcon } from 'src/assets/icons'
 
 const ICONS = {
   language: <LanguageIcon />,
   dashboard: <DashboardIcon />,
+  folder: <FolderIcon />,
 }
 
 export function useNavData() {
   const data = useMemo(
     () => [
       // OVERVIEW
-
       {
         subheader: 'File Storage Chain',
-        items: [{ title: 'Dashboard', path: paths.namespaces.root, icon: ICONS.dashboard }],
+        items: [
+          { title: 'Dashboard', path: paths.ROOT.root, icon: ICONS.dashboard },
+          { title: 'File Manager', path: paths.ROOT.fileManager, icon: ICONS.folder },
+        ],
       },
 
-      // Network<
-
+      // Network
       {
         items: [
           {

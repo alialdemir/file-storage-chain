@@ -1,10 +1,14 @@
 'use client'
+
 import { useMemo, useEffect, useReducer, useCallback } from 'react'
+
+import {} from 'src/hooks/use-mocked-user'
+
 import axios, { endpoints } from 'src/utils/axios'
+
 import { AuthContext } from './auth-context'
 import { setSession, isValidToken } from './utils'
 import { AuthUserType, ActionMapType, AuthStateType } from '../../types'
-import {} from 'src/hooks/use-mocked-user'
 
 // NOTE:
 // We only build demo at basic level.
