@@ -46,6 +46,28 @@ export function useGetOrganizations(params: IRequestParams) {
   //   ],
   // })
 
+  // firefly.invokeContractAPI('document', 'uploadDocument', {
+  //   input: {
+  //     args: JSON.stringify({ userId: '1', name: 'doc1' }),
+  //   },
+  //   options: {},
+  // })
+
+  firefly.queryContract({
+    input: {
+      args: "{ 'userId': '1' }",
+    },
+    interface: '4d5a15c4-c720-428f-ba9a-e23492f4489c',
+    method: {
+      name: 'getDocumentByUserId',
+    },
+    methodPath: 'getDocumentByUserId',
+    location: {
+      channel: 'document',
+      chaincode: 'document',
+    },
+  })
+  // firefly.getContractAPIs()
   const { data, isLoading, error, isValidating } = useSWR(filter, (filterData) =>
     firefly.getOrganizations(filterData)
   )

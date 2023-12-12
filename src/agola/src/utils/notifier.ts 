@@ -1,0 +1,34 @@
+import { ProviderContext, useSnackbar } from 'notistack'
+
+let useSnackbarRef: any
+
+const setUseSnackbarRef = (useSnackbarRefProp: ProviderContext) => {
+  useSnackbarRef = useSnackbarRefProp
+}
+
+export const SnackbarUtilsConfigurator = () => {
+  setUseSnackbarRef(useSnackbar())
+  return null
+}
+
+export const snackActions = {
+  success(messages: string) {
+    this.toast(messages, 'success')
+  },
+
+  warning(messages: string) {
+    this.toast(messages, 'warning')
+  },
+
+  info(messages: string) {
+    this.toast(messages, 'info')
+  },
+
+  error(messages: string) {
+    this.toast(messages, 'error')
+  },
+
+  toast(message: any, variant = 'default') {
+    useSnackbarRef.enqueueSnackbar(message, { variant })
+  },
+}

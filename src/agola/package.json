@@ -47,6 +47,7 @@
     "react-hook-form": "^7.47.0",
     "react-i18next": "^13.3.1",
     "react-lazy-load-image-component": "^1.6.0",
+    "sfs-models": "../local-npm-packages/sfs-models/",
     "simplebar-react": "^3.2.4",
     "stylis": "^4.3.0",
     "stylis-plugin-rtl": "^2.1.1",
